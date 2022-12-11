@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
     });
   }
 });
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     const user = req.body;
     const result = await insertUser(req.body);
@@ -42,10 +42,14 @@ router.post("/", async (req, res) => {
         });
     // get all data from db and return to the client
   } catch (error) {
-    console.log(error);
+    let message = error.message;
+    if (message.includes("E11000")) {
+      message = "There is another user already in the database with this email";
+    }
+    // next(error);
     res.json({
-      status: "success",
-      message: error.message,
+      status: "error",
+      message: message,
     });
   }
 });

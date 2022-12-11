@@ -1,11 +1,27 @@
-import { FormComponents } from "./components/FormComponents";
-
+import { FormComponents } from "./components/customForm/FormComponents";
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import { fetchAllUsers } from "./helpers/axiosHelper";
+import { UserTable } from "./components/userTable/UserTable";
 function App() {
-  const addTask = () => {};
+  const [userList, setUsersList] = useState([]);
+  useEffect(() => {
+    getUsers();
+  }, []);
+  const getUsers = async () => {
+    const { users } = await fetchAllUsers();
+    setUsersList(users);
+  };
   return (
     <div>
-      <h1>Hello</h1>
-      <FormComponents addTask={addTask} />
+      <section>
+        <FormComponents getUsers={getUsers} />
+      </section>
+      <section className="mt-5">
+        <div>55 Usaers Found</div>
+        <UserTable userList={userList} getUsers={getUsers} />
+      </section>
+      <ToastContainer />
     </div>
   );
 }
