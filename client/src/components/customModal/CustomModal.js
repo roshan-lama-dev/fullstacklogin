@@ -23,7 +23,7 @@ export const CustomModal = ({ setShow }) => {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Updat the User information</Modal.Title>
+            <Modal.Title>Update the User information</Modal.Title>
           </Modal.Header>
           <Modal.Body></Modal.Body>
           <Modal.Footer></Modal.Footer>

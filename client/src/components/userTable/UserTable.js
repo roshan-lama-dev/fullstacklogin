@@ -21,7 +21,7 @@ export const UserTable = ({ userList, getUsers }) => {
   return (
     <div>
       {show && (
-        <CustomModal show={show} setShow={setShow}>
+        <CustomModal show={show} setShow={setShow} >
           <EditForm />
         </CustomModal>
       )}
