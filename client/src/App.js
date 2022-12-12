@@ -18,7 +18,7 @@ function App() {
         <FormComponents getUsers={getUsers} />
       </section>
       <section className="mt-5">
-        <div>55 Usaers Found</div>
+        <div>{userList.length} Users Found</div>
         <UserTable userList={userList} getUsers={getUsers} />
       </section>
       <ToastContainer />
