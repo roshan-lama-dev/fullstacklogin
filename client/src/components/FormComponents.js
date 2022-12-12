@@ -17,6 +17,36 @@ export const FormComponents = (addTask) => {
       [name]: value,
     });
   };
+  const inputFields = [
+    {
+      name: "fName",
+      label: "First Name",
+      type: "text",
+      required: true,
+      placeholder: "",
+    },
+    {
+      name: "lName",
+      label: "Last Name",
+      type: "text",
+      required: true,
+      placeholder: "",
+    },
+    {
+      name: "email",
+      label: "Email Address",
+      type: "email",
+      required: true,
+      placeholder: "You email address",
+    },
+    {
+      name: "password",
+      label: "Password",
+      type: "password",
+      required: true,
+      placeholder: "",
+    },
+  ];
 
   return (
     <div>
